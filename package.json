@@ -1,0 +1,23 @@
+{
+  "name": "hapi-auth-payload",
+  "version": "1.0.0",
+  "description": "Authenticate people using payload parameters e.g: a POST request",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelsonic/hapi-auth-payload.git"
+  },
+  "keywords": [
+    "payload",
+    "authentication"
+  ],
+  "author": "nelsonic & friends",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/nelsonic/hapi-auth-payload/issues"
+  },
+  "homepage": "https://github.com/nelsonic/hapi-auth-payload#readme"
+}
