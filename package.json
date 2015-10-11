@@ -4,7 +4,8 @@
   "description": "Authenticate people using payload parameters e.g: a POST request",
   "main": "index.js",
   "scripts": {
-    "test": "tape"
+    "fast": "./node_modules/tape/bin/tape ./test/*.js",
+    "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/nelsonic/hapi-auth-payload/issues"
   },
-  "homepage": "https://github.com/nelsonic/hapi-auth-payload#readme"
+  "homepage": "https://github.com/nelsonic/hapi-auth-payload#readme",
+  "devDependencies": {
+    "boom": "^2.9.0",
+    "hapi": "^10.0.0",
+    "istanbul": "^0.3.20",
+    "joi": "^6.7.1",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.0"
+  },
+  "dependencies": { }
 }
