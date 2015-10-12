@@ -1,6 +1,6 @@
-# hapi-auth-*payload*
+# hapi-login-*payload*
 
-Authentication via `POST` payload values
+Login via `POST` payload values
 submitted by a *standard* html form - ***progressive enhancement***.
 
 [![Build Status](https://travis-ci.org/nelsonic/hapi-auth-payload.svg)](https://travis-ci.org/nelsonic/hapi-auth-payload)
@@ -9,23 +9,24 @@ Lead Maintainer: [Nelson](https://github.com/nelsonic)
 
 ## Why?
 
-Login should be simple. This Hapi.js plugin makes it so.
+Login should be simple.
 
 ## What?
 
 *Most* login forms send data to a server using the `POST` method.
-In Hapi this data is available in the `request.payload`.
-This *tiny* plugin simplifies setting up a "*Basic*" Login form
-for your hapi.js based app/api.
+In Hapi this data is available in the `request.payload`.  
+This *tiny* plugin simplifies setting up a "*simple*" `/login` route
+which you can `POST` to using a form in your hapi.js based app/api.
 
 
 
 
-Basic authentication requires validating a username and password combination. The `'basic'` scheme takes the following options:
+Payload-based authentication requires validating an email and password combination.
+The `'payload'` scheme takes the following options:
 
-- `validateFunc` - (required) a user lookup and password validation function with the signature `function(request, username, password, callback)` where:
-    - `request` - is the hapi request object of the request which is being authenticated.
-    - `username` - the username received from the client.
+- `validateFunc` - (*required*) a user lookup and password validation function with the signature `function(request, email, password, callback)` where:
+    - `request`  - is the hapi request object of the request which is being authenticated.
+    - `email`    - the email address received from the client.
     - `password` - the password received from the client.
     - `callback` - a callback function with the signature `function(err, isValid, credentials)` where:
         - `err` - an internal error.
@@ -40,16 +41,16 @@ var Bcrypt = require('bcrypt');
 
 var users = {
     john: {
-        username: 'john',
+        email: 'john@smith.net',
         password: '$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm',   // 'secret'
-        name: 'John Doe',
+        name: 'John Doe ',
         id: '2133d32a'
     }
 };
 
-var validate = function (request, username, password, callback) {
+var validate = function (request, email, password, callback) {
 
-    var user = users[username];
+    var user = users['john'];
     if (!user) {
         return callback(null, false);
     }
@@ -60,7 +61,7 @@ var validate = function (request, username, password, callback) {
     });
 };
 
-server.register(require('hapi-auth-basic'), function (err) {
+server.register(require('hapi-auth-payload'), function (err) {
 
     server.auth.strategy('simple', 'basic', { validateFunc: validate });
     server.route({ method: 'GET', path: '/', config: { auth: 'simple' } });
@@ -91,7 +92,7 @@ a *basic* html form.
 
 ## Notes:
 
-We *were* using
+We [*were*](https://github.com/dwyl/time/blob/17c5e830afffd558375a4c20814d8320d6ad4c9f/api/test/login.js#L31) using
 [*hapi-auth*-***basic***](https://github.com/hapijs/hapi-auth-basic)
 for our projects, while there's *nothing* "*wrong*" with that plugin,  
 we feel there is *one too many steps* involved.
