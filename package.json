@@ -1,5 +1,5 @@
 {
-  "name": "hapi-auth-payload",
+  "name": "hapi-login-payload",
   "version": "1.0.0",
   "description": "Authenticate people using payload parameters e.g: a POST request",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nelsonic/hapi-auth-payload.git"
+    "url": "git+https://github.com/nelsonic/hapi-login-payload.git"
   },
   "keywords": [
     "payload",
@@ -18,16 +18,16 @@
   "author": "nelsonic & friends",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/nelsonic/hapi-auth-payload/issues"
+    "url": "https://github.com/nelsonic/hapi-login-payload/issues"
   },
-  "homepage": "https://github.com/nelsonic/hapi-auth-payload#readme",
+  "homepage": "https://github.com/nelsonic/hapi-login-payload#readme",
   "devDependencies": {
     "boom": "^2.9.0",
-    "hapi": "^10.0.0",
-    "istanbul": "^0.3.20",
-    "joi": "^6.7.1",
+    "hapi": "^10.4.1",
+    "istanbul": "^0.3.22",
+    "joi": "^6.9.0",
     "tap-spec": "^4.1.0",
-    "tape": "^4.2.0"
+    "tape": "^4.2.1"
   },
   "dependencies": { }
 }

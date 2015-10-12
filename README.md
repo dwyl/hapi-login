@@ -4,6 +4,10 @@ Login via `POST` payload values
 submitted by a *standard* html form - ***progressive enhancement***.
 
 [![Build Status](https://travis-ci.org/nelsonic/hapi-auth-payload.svg)](https://travis-ci.org/nelsonic/hapi-auth-payload)
+[![codecov.io](http://codecov.io/github/nelsonic/hapi-login-payload/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login-payload?branch=master)
+[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-login-payload/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-login-payload)
+[![Dependency Status](https://david-dm.org/nelsonic/hapi-login-payload.svg)](https://david-dm.org/nelsonic/hapi-login-payload)
+[![devDependency Status](https://david-dm.org/nelsonic/hapi-login-payload/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login-payload#info=devDependencies)
 
 Lead Maintainer: [Nelson](https://github.com/nelsonic)
 
