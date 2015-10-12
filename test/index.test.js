@@ -74,6 +74,22 @@ test(file+'Attempt to /login with unrecognised field', function(t){
   });
 })
 
+test(file+"Subit /login with incorrect password", function(t) {
+  var person = {
+    "email"    : 'john@smith.net',
+    "password" : 'incorrect'
+  }
+  var options = {
+    method: "POST",
+    url: "/login",
+    payload : person
+  };
+
+  server.inject(options, function(response) {
+    t.equal(response.statusCode, 400, "/login faild when  password incorrect");
+    server.stop(function(){ t.end() });
+  });
+});
 
 test(file+"Successfully /login with email and password", function(t) {
   var person = {
@@ -89,24 +105,6 @@ test(file+"Successfully /login with email and password", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 200, "/login worked with email and password");
-    server.stop(function(){ t.end() });
-  });
-});
-
-test(file+"Subit /login with incorrect password", function(t) {
-  var person = {
-    "email"    : 'john@smith.net',
-    "password" : 'incorrect'
-  }
-  var options = {
-    method: "POST",
-    url: "/login",
-    payload : person
-  };
-
-  server.inject(options, function(response) {
-    // console.log(response)
-    t.equal(response.statusCode, 400, "/login faild when  password incorrect");
     server.stop(function(){ t.end() });
   });
 });

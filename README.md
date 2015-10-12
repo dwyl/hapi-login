@@ -25,17 +25,52 @@ Login should be simple.
 
 ## What?
 
-*Most* login forms send data to a server using the `POST` method.
+*Most* login forms send data to a server using the `POST` method;
+some apps send data the "traditional" way while others send via "ajax"...
 In Hapi this data is available in the `request.payload`.  
 This *tiny* plugin simplifies setting up a "*simple*" `/login` route
 which you can `POST` to using a form in your hapi.js based app/api.
 
 
+
 ## How?
 
+> We have *tried* to make this as ***simple as possible***,
+but if you have ***any questions***,  
+[***please ask***](https://github.com/nelsonic/hapi-login-payload/issues)
+and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Payload-based login requires validating an email and password combination.
-The plugin takes the following options:
+
+
+
+### 1. Install from NPM
+
+First install the `hapi-register` plugin
+(*and* [***Joi***](https://github.com/hapijs/joi))
+from `npm` and save as a *dependency*:
+
+```js
+npm install hapi-login-payload joi --save
+```
+
+### 2. Specify the fields required for login
+
+In general *most* login forms will require an email
+address and a password:
+
+```js
+var Joi = require('joi');
+var custom_fields = {
+  email     : Joi.string().email().required(), // Required
+  password  : Joi.string().required().min(6)   // minimum length 6 characters
+}
+```
+
+> Note: If you want/need to define any additional/cusotm fields,
+simply add them to your `fields` object.  
+(*as always, if you have any questions, ask!*)
+
+### 3. Define
 
 - `validateFunc` - (*required*) a user lookup and password validation function with the signature `function(request, email, password, callback)` where:
     - `request`  - is the hapi request object of the request which is being authenticated.
