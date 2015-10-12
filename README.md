@@ -9,6 +9,14 @@ submitted by a *standard* html form - ***progressive enhancement***.
 [![Dependency Status](https://david-dm.org/nelsonic/hapi-login-payload.svg)](https://david-dm.org/nelsonic/hapi-login-payload)
 [![devDependency Status](https://david-dm.org/nelsonic/hapi-login-payload/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login-payload#info=devDependencies)
 
+[![HAPI 10.4.1](http://img.shields.io/badge/hapi-10.4.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
+[![npm](https://img.shields.io/npm/v/hapi-login-payload.svg)](https://www.npmjs.com/package/hapi-login-payload)
+[![bitHound Score](https://www.bithound.io/github/nelsonic/hapi-login-payload/badges/score.svg)](https://www.bithound.io/github/nelsonic/hapi-login-payload)
+[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-login-payload.svg)](https://github.com/dwyl/hapi-login-payload)
+[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 Lead Maintainer: [Nelson](https://github.com/nelsonic)
 
 ## Why?
@@ -23,10 +31,11 @@ This *tiny* plugin simplifies setting up a "*simple*" `/login` route
 which you can `POST` to using a form in your hapi.js based app/api.
 
 
+## How?
 
 
-Payload-based authentication requires validating an email and password combination.
-The `'payload'` scheme takes the following options:
+Payload-based login requires validating an email and password combination.
+The plugin takes the following options:
 
 - `validateFunc` - (*required*) a user lookup and password validation function with the signature `function(request, email, password, callback)` where:
     - `request`  - is the hapi request object of the request which is being authenticated.
@@ -38,23 +47,19 @@ The `'payload'` scheme takes the following options:
         - `credentials` - a credentials object passed back to the application in `request.auth.credentials`. Typically, `credentials` are only
           included when `isValid` is `true`, but there are cases when the application needs to know who tried to authenticate even when it fails
           (e.g. with authentication mode `'try'`).
-- `allowEmptyUsername` - (optional) if `true`, allows making requests with an empty username. Defaults to `false`.
 
-```javascript
+```js
 var Bcrypt = require('bcrypt');
 
-var users = {
-    john: {
-        email: 'john@smith.net',
-        password: '$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm',   // 'secret'
-        name: 'John Doe ',
-        id: '2133d32a'
-    }
+var user = {
+    email: 'john@smith.net',
+    password: '$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm',   // 'secret'
+    name: 'John Doe ',
+    id: '2133d32a'
 };
 
 var validate = function (request, email, password, callback) {
 
-    var user = users['john'];
     if (!user) {
         return callback(null, false);
     }
@@ -71,11 +76,6 @@ server.register(require('hapi-auth-payload'), function (err) {
     server.route({ method: 'GET', path: '/', config: { auth: 'simple' } });
 });
 ```
-
-
-
-
-
 
 
 
