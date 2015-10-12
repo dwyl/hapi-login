@@ -35,13 +35,12 @@ server2.connection({ port: 8000 });
 
 var Joi = require('joi');
 var custom_fields = {
-  email     : Joi.string().email().required()
+  email : Joi.string().email().required()
 }
-
 var opts = { fields: custom_fields };
 
 // load the plugin
-server2.register([{ register: require('../lib'), options:opts  }], function (err) {
+server2.register([{ register: require('../lib'), options : opts  }], function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
 });
 

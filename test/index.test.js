@@ -57,7 +57,7 @@ test(file+'Attempt to register with unrecognised field', function(t){
 })
 
 var person = {
-  "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com',
+  "email" : 'dwyl.test+login-payload' +Math.random()+'@gmail.com',
   "password":"EverythingIsAwesome"
 }
 
