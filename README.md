@@ -103,7 +103,6 @@ and `require` it into your app.
 
 ### 4. Boot your Hapi.js Server with the Plugin
 
-
 ```js
 var Hapi   = require('hapi'); https://github.com/nelsonic/learn-hapi
 var server = new Hapi.Server({ debug: false })
@@ -121,10 +120,11 @@ server.start(function() {
 });
 ```
 
-That's it. 
+That's it.
 
+### Want more?
 
-
+> What is a fail_action_handler ?
 
 
 
