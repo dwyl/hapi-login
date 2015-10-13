@@ -54,11 +54,11 @@ test(file+'Attempt to submit a /login request without password', function(t){
 
   server.inject(options, function(response) {
     // joi returns 400 when auth validation fails.
-    var code = response.statusCode
+    var code = response.statusCode;
     t.equal(code, 400, '/login without password fails -> '+code);
     server.stop(function(){ t.end(); });
   });
-})
+});
 
 test(file+'Attempt to /login with unrecognised field', function(t){
   var options = {
@@ -69,11 +69,11 @@ test(file+'Attempt to /login with unrecognised field', function(t){
 
   server.inject(options, function(response) {
     // joi returns 400 when auth validation fails.
-    var code = response.statusCode
+    var code = response.statusCode;
     t.equal(code, 400, '/login with unknown field fails -> '+code);
     server.stop(function(){ t.end(); });
   });
-})
+});
 
 test(file+"Subit /login with incorrect password", function(t) {
   var person = {

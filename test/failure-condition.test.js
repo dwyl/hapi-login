@@ -9,8 +9,8 @@ var server1 = new Hapi.Server({ debug: false });
 server1.connection({ port: 8000 });
 
 // load the plugin
-server1.register([{ register: require('../lib') }], function (err) {
-  if (err) { console.error('Failed to load plugin:', err); }
+server1.register([{ register: require('../lib') }], function (error) {
+  if (error) { console.error('Forgot to load options with plugin:', error); }
 });
 
 /************************* TESTS ***************************/
