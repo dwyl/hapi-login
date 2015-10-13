@@ -24,17 +24,18 @@ var fields = {
   password  : Joi.string().required().min(5) // minimum length 6 characters
 }
 function handler (request, reply) {
-  console.log(request.payload)
-  Bcrypt.compare(request.payload.password, user.password, function (err, isValid) {
-    // console.log(' - - - - - - - - - - - - - - - - - - ');
-    // console.log(err);
-    // console.log(' - - - - - - - - - - - - - - - - - - ');
-      if(!err && isValid) {
-        reply('success');
-      } else {
-        reply('fail').code(400);
-      }
-  });
+  // db.get(request.payload.email, function(err, res) { // GENERIC DB request. insert your own here!
+  //   if(err) {
+  //     reply('fail').code(400);
+  //   }
+    Bcrypt.compare(request.payload.password, user.password, function (err, isValid) {
+        if(!err && isValid) {
+          reply('great success'); // or what ever you want to rply
+        } else {
+          reply('fail').code(400);
+        }
+    }); // END Bcrypt.compare which checks the password is correct
+  // }); // END db.get which checks if the person is in our database
 }
 var opts   = { fields:fields, handler:handler };
 

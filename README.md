@@ -1,7 +1,6 @@
 # hapi-login-*payload*
 
-Login via `POST` payload values
-submitted by a *standard* html form - ***progressive enhancement***.
+The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement*** #**LookMaNoAjax**
 
 [![Build Status](https://travis-ci.org/nelsonic/hapi-login-payload.svg)](https://travis-ci.org/nelsonic/hapi-login-payload)
 [![codecov.io](http://codecov.io/github/nelsonic/hapi-login-payload/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login-payload?branch=master)
@@ -21,7 +20,7 @@ Lead Maintainer: [Nelson](https://github.com/nelsonic)
 
 ## Why?
 
-Login should be simple.
+Login should be a ***simple seamless experience***.
 
 ## What?
 
@@ -45,7 +44,7 @@ and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im
 
 ### 1. Install from NPM
 
-First install the `hapi-register` plugin
+First install the `hapi-login-payload` plugin
 (*and* [***Joi***](https://github.com/hapijs/joi))
 from `npm` and save as a *dependency*:
 
@@ -70,42 +69,38 @@ var custom_fields = {
 simply add them to your `fields` object.  
 (*as always, if you have any questions, ask!*)
 
-### 3. Define
+### 3. Define your custom handler function
 
-- `validateFunc` - (*required*) a user lookup and password validation function with the signature `function(request, email, password, callback)` where:
+Define your handler function with the following signature:
+
+- `handler` - (*required*) a user lookup and password validation function with the signature `function(request, reply)` where:
     - `request`  - is the hapi request object of the request which is being authenticated.
-    - `email`    - the email address received from the client.
-    - `password` - the password received from the client.
-    - `callback` - a callback function with the signature `function(err, isValid, credentials)` where:
-        - `err` - an internal error.
-        - `isValid` - `true` if both the username was found and the password matched, otherwise `false`.
-        - `credentials` - a credentials object passed back to the application in `request.auth.credentials`. Typically, `credentials` are only
-          included when `isValid` is `true`, but there are cases when the application needs to know who tried to authenticate even when it fails
-          (e.g. with authentication mode `'try'`).
+    - `reply`    - the hapi reply object used to send the response to the client when login succeeds (*or fails*).
+
+#### Example:
 
 ```js
-var Bcrypt = require('bcrypt');
+var Bcrypt = require('bcrypt'); // use bcrypt to hash passwords.
+var db     = require('your-favourite-database'); // 
 
-var user = {
-    email: 'john@smith.net',
-    password: '$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm',   // 'secret'
-    name: 'John Doe ',
-    id: '2133d32a'
-};
-
-var validate = function (request, email, password, callback) {
-
-    if (!user) {
-        return callback(null, false);
+function handler (request, reply) {
+  db.get(request.payload.email, function(err, res) { // GENERIC DB request. insert your own here!
+    if(err) {
+      reply('fail').code(400); // don't leak info about user existence
     }
+    Bcrypt.compare(request.payload.password, user.password, function (err, isValid) {
+        if(!err && isValid) {
+          reply('great success'); // or what ever you want to rply
+        } else {
+          reply('fail').code(400);
+        }
+    }); // END Bcrypt.compare which checks the password is correct
+  }); // END db.get which checks if the person is in our database
+}
 
-    Bcrypt.compare(password, user.password, function (err, isValid) {
+var opts   = { fields:fields, handler:handler };
 
-        callback(err, isValid, { id: user.id, name: user.name });
-    });
-};
-
-server.register(require('hapi-auth-payload'), function (err) {
+server.register([{ register: require('hapi-login-payload'), options:opts }], function (err) {
 
     server.auth.strategy('simple', 'basic', { validateFunc: validate });
     server.route({ method: 'GET', path: '/', config: { auth: 'simple' } });
