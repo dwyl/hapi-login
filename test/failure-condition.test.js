@@ -5,11 +5,11 @@ var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 
 /************************ SETUP HAPI SERVER ***************************/
 var Hapi   = require('hapi');     // https://github.com/nelsonic/learn-hapi
-var server = new Hapi.Server({ debug: false })
-server.connection({ port: 8000 });
+var server1 = new Hapi.Server({ debug: false });
+server1.connection({ port: 8000 });
 
 // load the plugin
-server.register([{ register: require('../lib') }], function (err) {
+server1.register([{ register: require('../lib') }], function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
@@ -21,22 +21,22 @@ test(file+"No fields defined - expect 404 (i.e. no /login route!)", function(t) 
     payload : { email: 'invalidemail' } // no tld
   };
 
-  server.inject(options, function(response) {
+  server1.inject(options, function(response) {
     t.equal(response.statusCode, 404, "/login not found (as expected)");
-    server.stop(function(){ t.end() });
+    server1.stop(function(){ t.end(); });
   });
 });
 
 
 /************************* SERVER TWO **********************/
 
-var server2 = new Hapi.Server({ debug: false })
+var server2 = new Hapi.Server({ debug: false });
 server2.connection({ port: 8000 });
 
 var Joi = require('joi');
 var custom_fields = {
   email : Joi.string().email().required()
-}
+};
 var opts = { fields: custom_fields };
 
 // load the plugin
@@ -54,6 +54,6 @@ test(file+"No handler - expect 404 (i.e. no /login route!)", function(t) {
 
   server2.inject(options, function(response) {
     t.equal(response.statusCode, 404, "/login not found (as expected)");
-    server2.stop(function(){ t.end() });
+    server2.stop(function(){ t.end(); });
   });
 });

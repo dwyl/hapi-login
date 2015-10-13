@@ -22,7 +22,7 @@ var Joi    = require('joi');
 var fields = {
   email     : Joi.string().email().required(),
   password  : Joi.string().required().min(5) // minimum length 6 characters
-}
+};
 function handler (request, reply) {
   // db.get(request.payload.email, function(err, res) { // GENERIC DB request. insert your own here!
   //   if(err) {
@@ -41,7 +41,7 @@ var opts   = { fields:fields, handler:handler };
 
 // load the plugin with the specific fields we want to validate against
 server.register([{ register: require('../lib'), options:opts }], function (err) {
-  if (err) { console.error('Failed to load plugin:', err); }
+  if (err) { console.error('Failed to load login plugin:', err); }
 });
 
 /************************* TESTS ***************************/
@@ -56,7 +56,7 @@ test(file+'Attempt to submit a /login request without password', function(t){
     // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, '/login without password fails -> '+code);
-    server.stop(function(){ t.end() });
+    server.stop(function(){ t.end(); });
   });
 })
 
@@ -71,7 +71,7 @@ test(file+'Attempt to /login with unrecognised field', function(t){
     // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, '/login with unknown field fails -> '+code);
-    server.stop(function(){ t.end() });
+    server.stop(function(){ t.end(); });
   });
 })
 
@@ -79,7 +79,7 @@ test(file+"Subit /login with incorrect password", function(t) {
   var person = {
     "email"    : 'john@smith.net',
     "password" : 'incorrect'
-  }
+  };
   var options = {
     method: "POST",
     url: "/login",
@@ -88,7 +88,7 @@ test(file+"Subit /login with incorrect password", function(t) {
 
   server.inject(options, function(response) {
     t.equal(response.statusCode, 400, "/login faild when  password incorrect");
-    server.stop(function(){ t.end() });
+    server.stop(function(){ t.end(); });
   });
 });
 
@@ -96,7 +96,7 @@ test(file+"Successfully /login with email and password", function(t) {
   var person = {
     "email" : 'john@smith.net',
     "password":'secret'
-  }
+  };
   var options = {
     method: "POST",
     url: "/login",
@@ -106,6 +106,6 @@ test(file+"Successfully /login with email and password", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 200, "/login worked with email and password");
-    server.stop(function(){ t.end() });
+    server.stop(function(){ t.end(); });
   });
 });
