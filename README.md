@@ -77,11 +77,11 @@ Define your handler function with the following signature:
     - `request`  - is the hapi request object of the request which is being authenticated.
     - `reply`    - the hapi reply object used to send the response to the client when login succeeds (*or fails*).
 
-#### Example:
+#### Example `handler` function:
 
 ```js
 var Bcrypt = require('bcrypt'); // use bcrypt to hash passwords.
-var db     = require('your-favourite-database'); // 
+var db     = require('your-favourite-database'); // your choice of DB
 
 function handler (request, reply) {
   db.get(request.payload.email, function(err, res) { // GENERIC DB request. insert your own here!
@@ -97,16 +97,31 @@ function handler (request, reply) {
     }); // END Bcrypt.compare which checks the password is correct
   }); // END db.get which checks if the person is in our database
 }
+```
+> Note: You can store this function in a separate file
+and `require` it into your app.
 
-var opts   = { fields:fields, handler:handler };
+### 4. Boot your Hapi.js Server with the Plugin
+
+
+```js
+var Hapi   = require('hapi'); https://github.com/nelsonic/learn-hapi
+var server = new Hapi.Server({ debug: false })
+server.connection({ port: 8000 });
+
+// define the options you are going to pass in when registering your plugin
+var opts = { fields:fields, handler:handler }; // the fields and handler defined above
 
 server.register([{ register: require('hapi-login-payload'), options:opts }], function (err) {
+  if (err) { console.error('Failed to load plugin:', err); }
+});
 
-    server.auth.strategy('simple', 'basic', { validateFunc: validate });
-    server.route({ method: 'GET', path: '/', config: { auth: 'simple' } });
+server.start(function() {
+  console.log('Now Visit: http://127.0.0.1:'+server.info.port);
 });
 ```
 
+That's it. 
 
 
 
