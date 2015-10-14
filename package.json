@@ -1,6 +1,6 @@
 {
-  "name": "hapi-login-payload",
-  "version": "1.0.2",
+  "name": "hapi-login",
+  "version": "1.0.4",
   "description": "Authenticate people using payload parameters e.g: a POST request",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nelsonic/hapi-login-payload.git"
+    "url": "git+https://github.com/nelsonic/hapi-login.git"
   },
   "keywords": [
     "payload",
@@ -18,9 +18,9 @@
   "author": "nelsonic & friends",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/nelsonic/hapi-login-payload/issues"
+    "url": "https://github.com/nelsonic/hapi-login/issues"
   },
-  "homepage": "https://github.com/nelsonic/hapi-login-payload#readme",
+  "homepage": "https://github.com/nelsonic/hapi-login#readme",
   "devDependencies": {
     "bcrypt": "^0.8.5",
     "boom": "^2.9.0",

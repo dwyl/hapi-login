@@ -2,17 +2,17 @@
 
 The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement*** #**LookMaNoAjax**
 
-[![Build Status](https://travis-ci.org/nelsonic/hapi-login-payload.svg)](https://travis-ci.org/nelsonic/hapi-login-payload)
-[![codecov.io](http://codecov.io/github/nelsonic/hapi-login-payload/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login-payload?branch=master)
-[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-login-payload/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-login-payload)
-[![Dependency Status](https://david-dm.org/nelsonic/hapi-login-payload.svg)](https://david-dm.org/nelsonic/hapi-login-payload)
-[![devDependency Status](https://david-dm.org/nelsonic/hapi-login-payload/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login-payload#info=devDependencies)
+[![Build Status](https://travis-ci.org/nelsonic/hapi-login.svg)](https://travis-ci.org/nelsonic/hapi-login)
+[![codecov.io](http://codecov.io/github/nelsonic/hapi-login/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login?branch=master)
+[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-login/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-login)
+[![Dependency Status](https://david-dm.org/nelsonic/hapi-login.svg)](https://david-dm.org/nelsonic/hapi-login)
+[![devDependency Status](https://david-dm.org/nelsonic/hapi-login/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login#info=devDependencies)
 
 [![HAPI 10.4.1](http://img.shields.io/badge/hapi-10.4.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
-[![npm](https://img.shields.io/npm/v/hapi-login-payload.svg)](https://www.npmjs.com/package/hapi-login-payload)
-[![bitHound Score](https://www.bithound.io/github/nelsonic/hapi-login-payload/badges/score.svg)](https://www.bithound.io/github/nelsonic/hapi-login-payload)
-[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-login-payload.svg)](https://github.com/dwyl/hapi-login-payload)
+[![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
+[![bitHound Score](https://www.bithound.io/github/nelsonic/hapi-login/badges/score.svg)](https://www.bithound.io/github/nelsonic/hapi-login)
+[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-login.svg)](https://github.com/dwyl/hapi-login)
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -36,20 +36,19 @@ which you can `POST` to using a form in your hapi.js based app/api.
 
 > We have *tried* to make this as ***simple as possible***,
 but if you have ***any questions***,  
-[***please ask***](https://github.com/nelsonic/hapi-login-payload/issues)
+[***please ask***](https://github.com/nelsonic/hapi-login/issues)
 and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 
 
 
 ### 1. Install from NPM
 
-First install the `hapi-login-payload` plugin
+First install the `hapi-login` plugin
 (*and* [***Joi***](https://github.com/hapijs/joi))
 from `npm` and save as a *dependency*:
 
 ```js
-npm install hapi-login-payload joi --save
+npm install hapi-login joi --save
 ```
 
 ### 2. Specify the fields required for login
@@ -111,7 +110,7 @@ server.connection({ port: 8000 });
 // define the options you are going to pass in when registering your plugin
 var opts = { fields:fields, handler:handler }; // the fields and handler defined above
 
-server.register([{ register: require('hapi-login-payload'), options:opts }], function (err) {
+server.register([{ register: require('hapi-login'), options:opts }], function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
