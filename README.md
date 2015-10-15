@@ -1,6 +1,6 @@
 # hapi-*login*
 
-The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement*** #**LookMaNoAjax**
+The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement***
 
 [![Build Status](https://travis-ci.org/nelsonic/hapi-login.svg)](https://travis-ci.org/nelsonic/hapi-login)
 [![codecov.io](http://codecov.io/github/nelsonic/hapi-login/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login?branch=master)
@@ -21,6 +21,9 @@ Lead Maintainer: [Nelson](https://github.com/nelsonic)
 ## Why?
 
 Login should be a ***simple seamless experience***.
+
+> if you need a *working* example of this, see:
+https://github.com/nelsonic/hapi-login-example
 
 ## What?
 
@@ -166,4 +169,4 @@ We thought this was *too many* steps and not very beginner-friendly.
 So we removed the first 3 steps and use a simple html form with a `POST` action.
 
 > if you know (*or can think of*) a ***simpler*** way of doing this,
-[***please tell us***]()!
+[***please tell us***](https://github.com/nelsonic/hapi-login/issues)!
