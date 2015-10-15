@@ -1,4 +1,4 @@
-# hapi-login-*payload*
+# hapi-*login*
 
 The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement*** #**LookMaNoAjax**
 
@@ -43,17 +43,20 @@ and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im
 
 ### 1. Install from NPM
 
-First install the `hapi-login` plugin
-(*and* [***Joi***](https://github.com/hapijs/joi))
-from `npm` and save as a *dependency*:
+*First* install the `hapi-login` plugin from `npm` and save as a *dependency*:  
+( You will *also* need [***Joi***](https://github.com/hapijs/joi) to
+specify the required *fields* for loging in, e.g: email and password    
+and [***bcrypt***](https://www.npmjs.com/package/bcrypt) to
+***securely hash passwords*** *before storing them in a database* )
+
 
 ```js
-npm install hapi-login joi --save
+npm install hapi-login joi bcrypt --save
 ```
 
 ### 2. Specify the fields required for login
 
-In general *most* login forms will require an email
+*most* login forms will require an email
 address and a password:
 
 ```js
@@ -66,7 +69,7 @@ var custom_fields = {
 
 > Note: If you want/need to define any additional/cusotm fields,
 simply add them to your `fields` object.  
-(*as always, if you have any questions, ask!*)
+( *as always, if you have any questions*, [***please ask***](https://github.com/nelsonic/hapi-login/issues) )
 
 ### 3. Define your custom handler function
 
