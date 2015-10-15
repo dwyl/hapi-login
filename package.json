@@ -1,8 +1,8 @@
 {
   "name": "hapi-login",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Authenticate people using payload parameters e.g: a POST request",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "fast": "./node_modules/tape/bin/tape ./test/*.js",
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
