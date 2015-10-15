@@ -22,6 +22,8 @@ Lead Maintainer: [Nelson](https://github.com/nelsonic)
 
 Login should be a ***simple seamless experience***.
 
+![basic example](https://cloud.githubusercontent.com/assets/194400/10523082/6e7fab3c-7370-11e5-91e2-639fc725b3e6.png)
+
 > if you need a *working* example of this, see:
 https://github.com/nelsonic/hapi-login-example
 
