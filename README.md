@@ -8,8 +8,8 @@ The ***simplest possible*** login via *standard* html form `POST` payload ... #*
 [![Dependency Status](https://david-dm.org/nelsonic/hapi-login.svg)](https://david-dm.org/nelsonic/hapi-login)
 [![devDependency Status](https://david-dm.org/nelsonic/hapi-login/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login#info=devDependencies)
 
-[![HAPI 10.4.1](http://img.shields.io/badge/hapi-10.4.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
-[![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
+[![HAPI 11.1.0](http://img.shields.io/badge/hapi-11.1.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 supported")](http://nodejs.org/download/)
 [![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
 [![bitHound Score](https://www.bithound.io/github/nelsonic/hapi-login/badges/score.svg)](https://www.bithound.io/github/nelsonic/hapi-login)
 [![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-login.svg)](https://github.com/dwyl/hapi-login)
