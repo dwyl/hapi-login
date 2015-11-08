@@ -2,17 +2,17 @@
 
 The ***simplest possible*** login via *standard* html form `POST` payload ... #***ProgressiveEnhancement***
 
-[![Build Status](https://travis-ci.org/nelsonic/hapi-login.svg)](https://travis-ci.org/nelsonic/hapi-login)
-[![codecov.io](http://codecov.io/github/nelsonic/hapi-login/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-login?branch=master)
-[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-login/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-login)
-[![Dependency Status](https://david-dm.org/nelsonic/hapi-login.svg)](https://david-dm.org/nelsonic/hapi-login)
-[![devDependency Status](https://david-dm.org/nelsonic/hapi-login/dev-status.svg)](https://david-dm.org/nelsonic/hapi-login#info=devDependencies)
+[![Build Status](https://travis-ci.org/dwyl/hapi-login.svg)](https://travis-ci.org/dwyl/hapi-login)
+[![codecov.io](http://codecov.io/github/dwyl/hapi-login/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-login?branch=master)
+[![Code Climate](https://codeclimate.com/github/dwyl/hapi-login/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-login)
+[![Dependency Status](https://david-dm.org/dwyl/hapi-login.svg)](https://david-dm.org/dwyl/hapi-login)
+[![devDependency Status](https://david-dm.org/dwyl/hapi-login/dev-status.svg)](https://david-dm.org/dwyl/hapi-login#info=devDependencies)
 
 [![HAPI 11.1.0](http://img.shields.io/badge/hapi-11.1.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 supported")](http://nodejs.org/download/)
 [![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
-[![bitHound Score](https://www.bithound.io/github/nelsonic/hapi-login/badges/score.svg)](https://www.bithound.io/github/nelsonic/hapi-login)
-[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-login.svg)](https://github.com/dwyl/hapi-login)
+[![bitHound Score](https://www.bithound.io/github/dwyl/hapi-login/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-login)
+[![HitCount](https://hitt.herokuapp.com/dwyl/hapi-login.svg)](https://github.com/dwyl/hapi-login)
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -25,7 +25,7 @@ Login should be a ***simple seamless experience***.
 ![basic example](https://cloud.githubusercontent.com/assets/194400/10523082/6e7fab3c-7370-11e5-91e2-639fc725b3e6.png)
 
 > if you need a *working* example of this, see:
-https://github.com/nelsonic/hapi-login-example
+https://github.com/dwyl/hapi-login-example
 
 ## What?
 
@@ -41,7 +41,7 @@ which you can `POST` to using a form in your hapi.js based app/api.
 
 > We have *tried* to make this as ***simple as possible***,
 but if you have ***any questions***,  
-[***please ask***](https://github.com/nelsonic/hapi-login/issues)
+[***please ask***](https://github.com/dwyl/hapi-login/issues)
 and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -74,7 +74,7 @@ var custom_fields = {
 
 > Note: If you want/need to define any additional/cusotm fields,
 simply add them to your `fields` object.  
-( *as always, if you have any questions*, [***please ask***](https://github.com/nelsonic/hapi-login/issues) )
+( *as always, if you have any questions*, [***please ask***](https://github.com/dwyl/hapi-login/issues) )
 
 ### 3. Define your custom handler function
 
@@ -171,4 +171,4 @@ We thought this was *too many* steps and not very beginner-friendly.
 So we removed the first 3 steps and use a simple html form with a `POST` action.
 
 > if you know (*or can think of*) a ***simpler*** way of doing this,
-[***please tell us***](https://github.com/nelsonic/hapi-login/issues)!
+[***please tell us***](https://github.com/dwyl/hapi-login/issues)!
