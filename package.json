@@ -1,6 +1,6 @@
 {
   "name": "hapi-login",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "description": "Authenticate people using payload parameters e.g: a POST request",
   "main": "lib/index.js",
   "scripts": {
@@ -23,12 +23,12 @@
   "homepage": "https://github.com/dwyl/hapi-login#readme",
   "devDependencies": {
     "bcrypt": "^0.8.5",
-    "boom": "^3.0.0",
-    "hapi": "^11.1.0",
-    "istanbul": "^0.4.0",
-    "joi": "^7.0.0",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "boom": "^3.1.2",
+    "hapi": "^13.0.0",
+    "istanbul": "^0.4.2",
+    "joi": "^8.0.4",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
   },
   "dependencies": {}
 }
