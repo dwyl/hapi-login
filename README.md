@@ -8,7 +8,7 @@ The ***simplest possible*** login via *standard* html form `POST` payload ... #*
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login.svg)](https://david-dm.org/dwyl/hapi-login)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-login/dev-status.svg)](https://david-dm.org/dwyl/hapi-login#info=devDependencies)
 
-[![HAPI 11.1.0](http://img.shields.io/badge/hapi-11.1.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![HAPI 13.0.0](http://img.shields.io/badge/hapi-13.0.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 supported")](http://nodejs.org/download/)
 [![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
 [![bitHound Score](https://www.bithound.io/github/dwyl/hapi-login/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-login)
@@ -50,7 +50,7 @@ and/or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im
 
 *First* install the `hapi-login` plugin from `npm` and save as a *dependency*:  
 ( You will *also* need [***Joi***](https://github.com/hapijs/joi) to
-specify the required *fields* for loging in, e.g: email and password    
+specify the required *fields* for loging in, e.g: email and password
 and [***bcrypt***](https://www.npmjs.com/package/bcrypt) to
 ***securely hash passwords*** *before storing them in a database* )
 
