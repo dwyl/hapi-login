@@ -112,7 +112,7 @@ and `require` it into your app.
 ##### Custom Login Path
 - `loginPath` - (*optional*) an optional login path String, defaults to `/login` but can assigned any valid path.
 
-add it to your options object
+add it to your options object:
 
 ```js
 var options = {
@@ -130,7 +130,7 @@ var server = new Hapi.Server({ debug: false })
 server.connection({ port: 8000 });
 
 // define the options you are going to pass in when registering your plugin
-var opts = { fields:fields, handler:handler, loginPath: loginPath }; // the fields and handler defined above
+var opts = { fields:fields, handler:handler, loginPath:loginPath }; // the fields and handler defined above
 
 server.register([{ register: require('hapi-login'), options:opts }], function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
