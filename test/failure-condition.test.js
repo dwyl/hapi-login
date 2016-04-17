@@ -27,7 +27,6 @@ test(file+"No fields defined - expect 404 (i.e. no /login route!)", function(t) 
   });
 });
 
-
 /************************* SERVER TWO **********************/
 
 var server2 = new Hapi.Server({ debug: false });
