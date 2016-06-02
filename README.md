@@ -106,10 +106,11 @@ function handler (request, reply) {
   }); // END db.get which checks if the person is in our database
 }
 ```
-> Note: You can store this function in a separate file
+> Note: You can store this handler function in a *separate file*
 and `require` it into your app.
 
-
+> Note: if you want to send a people-friendly error message (*page*) check out:
+> https://github.com/dwyl/hapi-error
 
 ##### Custom Login Path
 - `loginPath` - (*optional*) an optional login path String, defaults to `/login` but can assigned any valid path.
@@ -148,8 +149,6 @@ That's it.
 ### Want more?
 
 > What is a fail_action_handler ?
-
-
 
 
 ## Frequently Asked Questions
