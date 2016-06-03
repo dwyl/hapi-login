@@ -8,7 +8,7 @@ The ***simplest possible*** login via *standard* html form `POST` payload ... #*
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login.svg)](https://david-dm.org/dwyl/hapi-login)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-login/dev-status.svg)](https://david-dm.org/dwyl/hapi-login#info=devDependencies)
 
-[![HAPI 13.0.0](http://img.shields.io/badge/hapi-13.2.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![HAPI 13.4.1](http://img.shields.io/badge/hapi-13.4.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 4.x & 5.x supported")](http://nodejs.org/download/)
 [![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
 [![bitHound Score](https://www.bithound.io/github/dwyl/hapi-login/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-login)
@@ -89,6 +89,7 @@ Define your handler function with the following signature:
 ```js
 var Bcrypt = require('bcrypt'); // use bcrypt to hash passwords.
 var db     = require('your-favourite-database'); // your choice of DB
+var Boom   = require('boom') //
 
 function handler (request, reply) {
   db.get(request.payload.email, function(err, res) { // GENERIC DB request. insert your own here!
@@ -99,15 +100,17 @@ function handler (request, reply) {
         if(!err && isValid) {
           reply('great success'); // or what ever you want to rply
         } else {
-          reply('fail').code(400);
-        }
+          reply(Boom.notFound('Sorry, that username or password is invalid, please try again.'));
+        } // see: https://github.com/dwyl/hapi-login/issues/14
     }); // END Bcrypt.compare which checks the password is correct
   }); // END db.get which checks if the person is in our database
 }
 ```
-> Note: You can store this function in a separate file
+> Note: You can store this handler function in a *separate file*
 and `require` it into your app.
 
+> Note: if you want to send a people-friendly error message (*page*) check out:
+> https://github.com/dwyl/hapi-error
 
 ##### Custom Login Path
 - `loginPath` - (*optional*) an optional login path String, defaults to `/login` but can assigned any valid path.
@@ -146,8 +149,6 @@ That's it.
 ### Want more?
 
 > What is a fail_action_handler ?
-
-
 
 
 ## Frequently Asked Questions
