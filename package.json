@@ -1,6 +1,6 @@
 {
   "name": "hapi-login",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Authenticate people using payload parameters e.g: a POST request",
   "main": "lib/index.js",
   "scripts": {
