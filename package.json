@@ -23,12 +23,12 @@
   "homepage": "https://github.com/dwyl/hapi-login#readme",
   "devDependencies": {
     "bcrypt": "^0.8.6",
-    "boom": "^3.2.1",
-    "hapi": "^13.4.1",
-    "istanbul": "^0.4.3",
-    "joi": "^8.4.0",
+    "boom": "^4.0.0",
+    "hapi": "^15.0.3",
+    "istanbul": "^0.4.5",
+    "joi": "^9.0.4",
     "tap-spec": "^4.1.1",
-    "tape": "^4.5.1"
+    "tape": "^4.6.0"
   },
   "dependencies": {}
 }

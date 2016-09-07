@@ -6,7 +6,7 @@ The ***simplest possible*** login via *standard* html form `POST` payload ... #*
 [![codecov.io](http://codecov.io/github/dwyl/hapi-login/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-login?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-login/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-login)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login.svg)](https://david-dm.org/dwyl/hapi-login)
-[![devDependency Status](https://david-dm.org/dwyl/hapi-login/dev-status.svg)](https://david-dm.org/dwyl/hapi-login#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/dwyl/hapi-login/dev-status.svg)](https://david-dm.org/dwyl/hapi-login?type=dev)
 
 [![HAPI 13.4.1](http://img.shields.io/badge/hapi-13.4.1-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 4.x & 5.x supported")](http://nodejs.org/download/)
